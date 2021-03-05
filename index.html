@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Tick-Tac-Toe</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+        background: #eee;
+      }
+
+      .container {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: #eee;
+      }
+
+      .container2 {
+        min-height: 20vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: #eee;
+      }
+
+      h1 {
+        font-size: 5rem;
+        margin-bottom: 0.5em;
+      }
+
+      h2 {
+        font-size: 20px;
+        margin-top: 1em;
+        font-size: 2rem;
+        margin-bottom: 0.5em;
+      }
+      p {
+        text-align: center;
+      }
+
+      .play-area {
+        display: grid;
+        width: 300px;
+        height: 300px;
+        grid-template-columns: auto auto auto;
+      }
+
+      .block {
+        display: flex;
+        width: 100px;
+        height: 100px;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+        font-weight: bold;
+        border: 3px solid black;
+        transition: background 0.2s ease-in-out;
+      }
+
+      .block:hover {
+        cursor: pointer;
+        background: #eee;
+      }
+
+      .occupied:hover {
+        background: #eee;
+      }
+
+      .win {
+        background: #0ff30f;
+      }
+
+      .win:hover {
+        background: #0ff30f;
+      }
+
+      #block_0,
+      #block_1,
+      #block_2 {
+        border-top: none;
+      }
+
+      #block_0,
+      #block_3,
+      #block_6 {
+        border-left: none;
+      }
+
+      #block_6,
+      #block_7,
+      #block_8 {
+        border-bottom: none;
+      }
+
+      #block_2,
+      #block_5,
+      #block_8 {
+        border-right: none;
+      }
+
+      button {
+        outline: none;
+        border: 4px solid black;
+        padding: 10px 20px;
+        font-size: 1rem;
+        font-weight: bold;
+        background: none;
+        transition: all 0.2s ease-in-out;
+      }
+
+      button:hover {
+        cursor: pointer;
+        background: black;
+        color: white;
+      }
+
+      .mainButton {
+        font-size: 30px;
+      }
+
+      .subButton {
+        font-size: 15px;
+        padding: 5px 10px;
+        border: 1px solid black;
+      }
+
+      .subButton:hover {
+        cursor: pointer;
+        background: black;
+        color: white;
+      }
+
+      .subButton2 {
+        border: none;
+      }
+
+      .subButton2:hover {
+        border: none;
+        color: none;
+      }
+
+      .buttonScore {
+        color: black;
+        font-size: 30px;
+        padding: 5px 12px;
+      }
+
+      .playerWin {
+        color: green;
+      }
+
+      .computerWin {
+        color: red;
+      }
+
+      .draw {
+        color: orange;
+      }
+
+      @media only screen and (max-width: 600px) {
+        h1 {
+          font-size: 3rem;
+          margin-bottom: 0.5em;
+        }
+
+        h2 {
+          margin-top: 1em;
+          font-size: 1.3rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Tic-Tac-Toe</h1>
+      <div>
+        <button class="mainButton" onclick="onePlayer()">One Player</button>
+        <button class="mainButton" onclick="twoPlayer()">Two Player</button>
+      </div>
+      <p id="players">One player mode Selected.</p>
+      <br />
+      <div id="firstSecond">
+        <button id="first" class="subButton" onclick="X()">X (First)</button>
+        <button id="second" class="subButton" onclick="O()">O (Second)</button>
+        <p id="playerOneCharacter"></p>
+      </div>
+      <br />
+      <div>
+        <button id="easy" class="subButton" onclick="easy()">Easy</button>
+        <button id="normal" class="subButton" onclick="normal()">Normal</button>
+        <button id="hard" class="subButton" onclick="hard()">Hard</button>
+      </div>
+      <p id="difficulty">Normal mode selected.</p>
+      <br />
+      <p id="playerTurn">You go First.</p>
+      <br />
+      <div class="play-area"></div>
+      <h2 id="winner"></h2>
+      <button onclick="reset_board()">RESET</button>
+    </div>
+    <div class="container2">
+      <h2 id="scoreOne">Player Score</h2>
+      <button id="score1" class="buttonScore">0</button>
+      <h2 id="scoreTwo">Computer score</h2>
+      <button id="score2" class="buttonScore">0</button>
+      <br />
+      <button onclick="resetScores()">Reset Scores</button>
+    </div>
+    <br /><br /><br />
+    <hr />
+    <hr />
+    <br /><br />
+
+    <br /><br /><br /><br />
+    <script type="text/javascript" src="api.js"></script>
+  </body>
+</html>

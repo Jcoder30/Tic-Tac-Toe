@@ -1,0 +1,17 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "pwa-chrome",
+      "request": "launch",
+      "name": "Debug in Chrome",
+      "file": "${workspaceFolder}"
+    },
+    {
+      "type": "node-terminal",
+      "name": "Create JavaScript Debug Terminal",
+      "request": "launch",
+      "cwd": "${workspaceFolder}"
+    }
+  ]
+}
